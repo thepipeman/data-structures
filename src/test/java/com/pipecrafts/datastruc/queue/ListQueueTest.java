@@ -6,9 +6,10 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-public class BasicQueueTest {
+public class ListQueueTest {
 
-  BaseQueue<String> riders = new BasicQueue<>();
+  BaseQueue<String> riders = new ListQueue<>();
+
 
   @Before
   public void setup() {
@@ -17,6 +18,7 @@ public class BasicQueueTest {
     riders.enQueue("Faye");
     riders.enQueue("Clyde");
   }
+
 
   @Test
   public void testEnqueue() {
@@ -36,5 +38,6 @@ public class BasicQueueTest {
     String riderOnLift = riders.access(2);
     assertEquals(riderOnLift, "Faye");
   }
+
 
 }
