@@ -1,6 +1,8 @@
 package com.pipecrafts.datastruc.queue;
 
 
+import java.util.Objects;
+
 public class BasicQueue<T> {
 
   private T[] data;
@@ -53,18 +55,22 @@ public class BasicQueue<T> {
 
     if (front == end) {
       T item = data[front];
+      data[front] = null;
       front = -1;
       end = -1;
       return item;
     }
 
     // FIFO
-    return data[front++];
+    T item = data[front];
+    data[front] = null;
+    front++;
+    return item;
   }
 
   public boolean contains(T item) {
     for (T dataItem : data) {
-      if (dataItem.equals(item)) {
+      if (Objects.equals(dataItem, item)) {
         return true;
       }
     }
