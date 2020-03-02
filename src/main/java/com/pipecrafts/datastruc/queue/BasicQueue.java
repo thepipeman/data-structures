@@ -3,7 +3,7 @@ package com.pipecrafts.datastruc.queue;
 
 import java.util.Objects;
 
-public class BasicQueue<T> {
+public class BasicQueue<T> implements BaseQueue<T> {
 
   private T[] data;
 
@@ -31,6 +31,7 @@ public class BasicQueue<T> {
     return (end - front) + 1;
   }
 
+  @Override
   public void enQueue(T item) {
 
     if ((end + 1) % data.length == front) {
