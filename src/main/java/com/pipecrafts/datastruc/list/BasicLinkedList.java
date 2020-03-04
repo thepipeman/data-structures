@@ -60,18 +60,18 @@ public class BasicLinkedList<T> implements BaseLinkedList<T> {
     while (i < position && currentNode != null) {
       // set the nextNode as currentNode until the
       currentNode = currentNode.getNextNode();
-      position++;
+      i++;
     }
 
-    Node<T> nodeToInsert = new Node<>(item);
 
     // create a reference to the nextNode
-    Node<T> nodeToMoveAtTheBack = currentNode.getNextNode();
+    Node<T> nodeToMoveAtTheBack = currentNode;
 
     // set nodeToInsert as nextNode
-    currentNode.setNextNode(nodeToInsert);
+    currentNode = new Node<>(item);
     // now set the nextNode one step behind
-    nodeToInsert.setNextNode(nodeToMoveAtTheBack);
+    currentNode.setNextNode(nodeToMoveAtTheBack);
+    this.first = currentNode;
     this.nodeCount++;
   }
 
@@ -136,6 +136,7 @@ public class BasicLinkedList<T> implements BaseLinkedList<T> {
     }
     return -1;
   }
+
 }
 
 
