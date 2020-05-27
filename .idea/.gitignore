@@ -1,2 +1,12 @@
 # Default ignored files
 /workspace.xml
+
+target
+
+# idea
+.idea
+*.iml
+*.ipr
+*.iws
+*.ids
+atlassian-ide-plugin.xml
